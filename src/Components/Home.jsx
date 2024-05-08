@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from '../Helpers/axios';
 
 const Home = () => {
@@ -24,11 +24,12 @@ const Home = () => {
     ));
   }
 
+  useEffect(() =>{
+    getUsers()
+  },[]);
+
   return (
     <div className='px-10 py-10'>
-      <button className='px-3 py-3 bg-blue-500 rounded-lg mb-4' onClick={getUsers}>
-        Get Users
-      </button>
       <hr />
       <ul className='mt-4 flex flex-wrap gap-4'>{renderUsers}</ul>
     </div>
